@@ -8,11 +8,11 @@ function MessageBoard() {
     newMessageList.push(messageInput);
     setMessageList(newMessageList);
   };
-  const deleteMessage = (messageListIndex) =>{
-    const newMessageList = [...messageList]
-    newMessageList.splice(messageListIndex,1)
-    setMessageList(newMessageList)
-  }
+  const deleteMessage = (messageListIndex) => {
+    const newMessageList = [...messageList];
+    newMessageList.splice(messageListIndex, 1);
+    setMessageList(newMessageList);
+  };
   return (
     <div className="app-wrapper">
       <h1 class="app-title">Message board</h1>
@@ -34,11 +34,13 @@ function MessageBoard() {
         </button>
       </div>
       <div class="board">
-        {messageList.map((message,index) => {
+        {messageList.map((message, index) => {
           return (
             <div className="message">
-              <h1>{message}</h1>
-              <button className="delete-button" onClick={deleteMessage}>x</button>
+              <h1 key={index}>{message}</h1>
+              <button className="delete-button" onClick={deleteMessage}>
+                x
+              </button>
             </div>
           );
         })}

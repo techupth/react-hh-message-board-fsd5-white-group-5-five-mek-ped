@@ -9,7 +9,6 @@ function MessageBoard() {
     const newMessage = [...message];
     newMessage.push(text);
     setMessage(newMessage);
-    setText("");
   }
 
   function deleteMessage(index) {
@@ -21,7 +20,7 @@ function MessageBoard() {
   return (
     <div className="app-wrapper">
       <h1 class="app-title">Message board</h1>
-      <form class="message-input-container" onSubmit={addMessage}>
+      <div class="message-input-container">
         <label>
           <input
             id="message-text"
@@ -32,8 +31,10 @@ function MessageBoard() {
             value={text}
           />
         </label>
-        <button className="submit-message-button">Submit</button>
-      </form>
+        <button className="submit-message-button" onClick={addMessage}>
+          Submit
+        </button>
+      </div>
       <div class="board">
         {message.map((item, index) => {
           return (
